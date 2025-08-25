@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Censura na Venezuela</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      background-color: #f4f4f4;
+      color: #333;
+      transition: background-color 0.3s, color 0.3s;
+    }
+
+    .hero {
+      background: url('https://via.placeholder.com/1200x400') center/cover no-repeat;
+      color: white;
+      text-align: center;
+      padding: 60px 20px;
+    }
+
+    h1 {
+      font-size: 2.5em;
+      margin-bottom: 10px;
+    }
+
+    button {
+      background-color: #003049;
+      color: white;
+      border: none;
+      padding: 10px 15px;
+      margin: 10px 5px;
+      cursor: pointer;
+      border-radius: 5px;
+      font-size: 1em;
+    }
+
+    button:hover {
+      background-color: #d62828;
+    }
+
+    main {
+      padding: 20px;
+      max-width: 800px;
+      margin: auto;
+    }
+
+    section {
+      margin-bottom: 40px;
+    }
+
+    h2 {
+      color: #003049;
+      border-bottom: 2px solid #ccc;
+      padding-bottom: 5px;
+    }
+
+    ul {
+      list-style-type: disc;
+      padding-left: 20px;
+    }
+
+    textarea {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 10px;
+      font-size: 1em;
+    }
+
+    #commentList {
+      list-style-type: none;
+      padding-left: 0;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      background-color: #eee;
+      font-size: 0.9em;
+    }
+
+    .dark-mode {
+      background-color: #1e1e1e;
+      color: #f0f0f0;
+    }
+
+    .dark-mode footer {
+      background-color: #2a2a2a;
+    }
+
+    @media (max-width: 600px) {
+      h1 {
+        font-size: 1.8em;
+      }
+
+      button {
+        width: 100%;
+        margin: 10px 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="hero">
+    <h1>📵 Censura Disfarçada de Proteção</h1>
+    <p>Como o governo venezuelano usa a proteção infantil para controlar redes sociais.</p>
+    <button onclick="toggleTheme()">🌗 Alternar Tema</button>
+    <button onclick="shareContent()">📤 Compartilhar</button>
+  </header>
+
+  <main>
+    <section>
+      <h2>⚖️ Leis de Censura</h2>
+      <ul>
+        <li><strong>Lei Resorte:</strong> Bloqueios por “incitação ao ódio”.</li>
+        <li><strong>Lei Contra o Ódio:</strong> Prisões por críticas online.</li>
+        <li><strong>Lei de Dados:</strong> Monitoramento e remoção de conteúdo.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>👶 Crianças como Escudo</h2>
+      <p>ONGs denunciam uso seletivo da LOPNA para censurar protestos e denúncias sociais.</p>
+    </section>
+
+    <section>
+      <h2>📊 Impacto e Violações</h2>
+      <ul>
+        <li>30% dos bloqueios em 2023 foram justificados pela “proteção infantil”.</li>
+        <li>Violação da Constituição e tratados internacionais.</li>
+      </ul>
+    </section>
+
+    <section id="commentSection">
+      <h2>💬 Comentários</h2>
+      <textarea id="commentBox" placeholder="Deixe seu comentário..."></textarea>
+      <button onclick="addComment()">Enviar</button>
+      <ul id="commentList"></ul>
+    </section>
+  </main>
+
+  <footer>
+    <p>Baseado em fontes públicas e relatórios da OEA, IPYS e Human Rights Watch.</p>
+  </footer>
+
+  <script>
+    function toggleTheme() {
+      document.body.classList.toggle('dark-mode');
+    }
+
+    function shareContent() {
+      const shareText = "Veja como a censura na Venezuela é justificada pela proteção infantil.";
+      const shareUrl = window.location.href;
+      window.open(`https://twitter.com/intent/tweet?text=${encodeURIComponent(shareText)}&url=${encodeURIComponent(shareUrl)}`, '_blank');
+    }
+
+    function addComment() {
+      const commentBox = document.getElementById('commentBox');
+      const commentList = document.getElementById('commentList');
+      if (commentBox.value.trim() !== "") {
+        const newComment = document.createElement('li');
+        newComment.textContent = commentBox.value;
+        commentList.appendChild(newComment);
+        commentBox.value = "";
+      }
+    }
+  </script>
+</body>
+</html>
